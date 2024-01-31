@@ -24,7 +24,29 @@ Investigar Agresivamente:\n
 La civilización alienígena se siente amenazada y contraataca. Tu nave sufre daños, pero logras escapar, perdiendo la oportunidad de aprender más.\n
 Final B - Escape Heroico:\n
 Al investigar agresivamente, tu escape exitoso después del contraataque alienígena se convierte en una historia de valentía.
-    """ 
+    """,
+
+'B': """
+Seguir Explorando:\n
+Optas por seguir explorando el sistema solar en busca de otras señales de vida o recursos.\n
+Encuentras una luna con un extraño monolito. ¿Decides investigar o ignorar el monolito?\n
+Escribe `!decision B1` para investigar \n
+`!decision B2` para ingnorar.
+""",
+
+'B1': """
+Investigar el Monolito:\n
+Al tocar el monolito, experimentas una visión del futuro que te guía hacia una ruta segura para regresar a casa.\n
+Final C - De vuelta a casa:\n
+Al elegir investigar el monolito logras regresar a casa , te das cuenta que han pasado siglos desde que te fuiste.\n
+""",
+
+'B2': """
+Ignorar el Monolito:\n
+Decides no investigar el monolito y continúas explorando, sin obtener información adicional.\n
+final D - Viaje infinito:\n
+vagas por la inmensidad tratando de regresar a casa fallidamente durante decadas, buscas de nuevo el monolito pero no lo vuelves a encontrar por lo que jamas vuelves a casa.\n
+"""
 }
 
 @bot.event
@@ -56,12 +78,19 @@ Escribe `!decision A` para aterrizar en el planeta \n
 `!decision B` para seguir explorando el sistema solar.\n
 """
     await ctx.send(f"{message}")
-    
+
+@bot.command(name='hola')
+async def saludo(ctx):
+    message = """
+Hola aventurer@ :D bienvenido al juego interactivo espacial \n
+cuando estes list@ para tu aventura hazmelo saber mediante el comando '!comenzar' para iniciar tu aventura\n
+que te diviertas :D"""
+    await ctx.send(f"{message}")
 
 @bot.command(name='decision')
 async def historia(ctx, *args):
     if len(args) == 0:
-        await ctx.send('--Debes ingresar una letra--')
+        await ctx.send('--Debes ingresar una de las opciones por favor UnU--')
     else:
         letra = args[0].upper()
         await ctx.send(historias[letra])
@@ -73,5 +102,5 @@ async def borrar_chat(ctx, cantidad: int):
     await ctx.send(f"Se han borrado {cantidad} mensajes.")
 
 
-token = 'aqui va el token'
+token = 'MTIwMTkzMDg4OTY3Njk4NDQwMA.GOLVKn.Fe2Bh2ClDAUOyb4X4Ywcpp_I0DNCQIlRO0ND2o'
 bot.run(token)
