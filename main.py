@@ -73,5 +73,5 @@ async def borrar_chat(ctx, cantidad: int):
     await ctx.send(f"Se han borrado {cantidad} mensajes.")
 
 
-token = 'MTIwMTkzMDg4OTY3Njk4NDQwMA.Gvt4kq.NHmSawm8F3sAXiAFL7hHfWLGWAd4uEfKnR2hys'
+token = 'aqui va el token'
 bot.run(token)
